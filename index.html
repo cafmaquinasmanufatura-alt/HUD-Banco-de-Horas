@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<div id="kpiSaldo" class="text-3xl font-black mt-1">0 h</div>
+<div class="mt-2 text-xs text-slate-400">Última atualização: <span id="lastUpdated">-</span></div>
+</div>
+<div class="rounded-2xl p-4 bg-[var(--card)] border border-slate-700/60 glow">
+<div class="text-xs uppercase tracking-wide text-slate-400">Horas extras</div>
+<div id="kpiExtras" class="text-3xl font-black mt-1 text-emerald-300">+0 h</div>
+<div class="mt-2 text-xs text-slate-400">Período filtrado</div>
+</div>
+<div class="rounded-2xl p-4 bg-[var(--card)] border border-slate-700/60 glow">
+<div class="text-xs uppercase tracking-wide text-slate-400">Horas devidas</div>
+<div id="kpiDevidas" class="text-3xl font-black mt-1 text-rose-300">-0 h</div>
+<div class="mt-2 text-xs text-slate-400">Período filtrado</div>
+</div>
+<div class="rounded-2xl p-4 bg-[var(--card)] border border-slate-700/60 glow">
+<div class="text-xs uppercase tracking-wide text-slate-400">Saldo do mês</div>
+<div id="kpiSaldoMes" class="text-3xl font-black mt-1 text-sky-300">0 h</div>
+<div class="mt-2 text-xs text-slate-400">Competência atual ou filtrada</div>
+</div>
+</section>
+
+
+<!-- Gráficos -->
+<section class="max-w-7xl mx-auto px-4 mt-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
+<div class="rounded-2xl p-4 bg-[var(--card)] border border-slate-700/60 col-span-2 glow">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-semibold">Saldo diário (agregado)</h3>
+<span class="text-xs px-2 py-1 rounded bg-[var(--caf-red)]/15 text-[var(--caf-red)] border border-[var(--caf-red)]/30">Visão geral</span>
+</div>
+<canvas id="chartSaldo" height="120"></canvas>
+</div>
+<div class="rounded-2xl p-4 bg-[var(--card)] border border-slate-700/60 glow">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-semibold">Distribuição por colaborador</h3>
+<span class="text-xs px-2 py-1 rounded bg-slate-700/40 border border-slate-600">Saldo acumulado final</span>
+</div>
+<canvas id="chartDistrib" height="120"></canvas>
+</div>
+</section>
+
+
+<!-- Tabela -->
+<section class="max-w-7xl mx-auto px-4 mt-6 mb-6">
+<div class="rounded-2xl overflow-hidden border border-slate-700/60 bg-[var(--card)] glow">
+<div class="px-4 py-3 flex items-center justify-between bg-[var(--card2)] border-b border-slate-700/60">
+<h3 class="font-semibold">Lançamentos</h3>
+<div class="flex gap-2 text-xs">
+<span class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300">Extras</span>
+<span class="px-2 py-1 rounded bg-rose-500/20 text-rose-300">Devidas</span>
+</div>
+</div>
+<table class="w-full text-sm">
+<thead class="bg-slate-900/40">
+<tr class="text-left text-slate-300">
+<th class="px-3 py-2">Data</th>
+<th class="px-3 py-2">Colaborador</th>
+<th class="px-3 py-2">Equipe</th>
+<th class="px-3 py-2">Extras</th>
+<th class="px-3 py-2">Devidas</th>
+<th class="px-3 py-2">Saldo dia</th>
+<th class="px-3 py-2">Saldo acumulado</th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+</section>
+
+
+<!-- Diagnóstico e Testes -->
+<section class="max-w-7xl mx-auto px-4 mb-10 grid grid-cols-1 lg:grid-cols-3 gap-4">
+<div class="rounded-2xl p-4 bg-[var(--card)] border border-slate-700/60 glow">
+<div class="flex items-center justify-between">
+<h3 class="font-semibold">Diagnóstico da Fonte</h3>
+<button id="btnRunTests" class="text-xs px-2 py-1 rounded bg-slate-700/40 border border-slate-600">Rodar testes</button>
+</div>
+<div id="diag" class="mt-3 text-sm"></div>
+</div>
+<div class="rounded-2xl p-4 bg-[var(--card)] border border-slate-700/60 glow lg:col-span-2">
+<h3 class="font-semibold mb-2">Testes automatizados</h3>
+<ul id="tests" class="space-y-2 text-sm"></ul>
+</div>
+</section>
+</section>
+
+
+<div id="toast" style="opacity:0; transition: opacity .3s ease"></div>
+</body>
+</html>
